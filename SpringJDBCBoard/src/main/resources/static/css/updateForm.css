@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+/* 노션 라이트모드 디자인 시스템 변수 정의 */
+:root {
+    --notion-bg: #ffffff;
+    --notion-text: #37352f;
+    --notion-text-light: #787774;
+    --notion-border: rgba(55, 53, 47, 0.09);
+    --notion-border-strong: rgba(55, 53, 47, 0.16);
+    --notion-bg-hover: rgba(55, 53, 47, 0.04);
+    --notion-badge-bg: rgba(235, 236, 235, 0.6);
+    --notion-primary-hover: rgba(35, 131, 226, 0.08);
+    --notion-primary-text: #2383e2;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--notion-bg);
+    color: var(--notion-text);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.notion-update-wrapper {
+    width: 100%;
+    max-width: 720px;
+    padding: 80px 24px;
+    box-sizing: border-box;
+}
+
+/* 📄 노션 페이지 헤더 및 인풋 스타일 */
+.notion-page-header {
+    margin-bottom: 24px;
+}
+
+.notion-page-icon {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 12px;
+    user-select: none;
+}
+
+.notion-title-input {
+    width: 100%;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--notion-text);
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.notion-title-input::placeholder {
+    color: rgba(55, 53, 47, 0.15);
+}
+
+/* 📑 메타데이터 속성 영역 */
+/* 👤 작성자 입력 필드 - 노션 스타일링 추가 */
+.notion-writer-input {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--notion-text);
+    background-color: var(--notion-badge-bg); /* 기존 회색 배지 배경색 변수 활용 */
+    padding: 3px 8px;
+    border-radius: 3px;
+    width: 140px;
+    box-sizing: border-box;
+    transition: background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* 마우스를 올렸을 때 노션 특유의 미세한 피드백 효과 */
+.notion-writer-input:hover {
+    background-color: rgba(55, 53, 47, 0.08);
+}
+
+/* 포커스(클릭)되었을 때 은은한 노션 블루 포인트 컬러 테두리 생성 */
+.notion-writer-input:focus {
+    background-color: var(--notion-bg);
+    box-shadow: inset 0 0 0 1px rgba(35, 131, 226, 0.4), 0 0 0 2px rgba(35, 131, 226, 0.15);
+}
+.notion-properties {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--notion-border);
+}
+
+.notion-property-row {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.property-label {
+    width: 100px;
+    color: var(--notion-text-light);
+    user-select: none;
+}
+
+.property-value {
+    color: var(--notion-text);
+}
+
+.property-value-no {
+    color: var(--notion-text-light);
+    font-family: monospace;
+}
+
+.writer-badge {
+    background-color: var(--notion-badge-bg);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.date-text {
+    font-size: 13.5px;
+}
+
+/* 🖋️ 본문 텍스트 영역 스타일 */
+.notion-content-area {
+    margin-bottom: 48px;
+}
+
+.notion-textarea {
+    width: 100%;
+    min-height: 300px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--notion-text);
+    border: none;
+    outline: none;
+    resize: none; /* 유저가 임의로 크기 조절 안되게 고정 */
+    background: transparent;
+    padding: 0;
+}
+
+.notion-textarea::placeholder {
+    color: rgba(55, 53, 47, 0.25);
+}
+
+/* 🛠️ 하단 버튼 영역 */
+.notion-action-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--notion-border-strong);
+    padding-top: 20px;
+}
+
+/* 버튼 기본 세팅 */
+.notion-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--notion-text);
+    text-decoration: none;
+    border: 1px solid var(--notion-border-strong);
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background 0.1s ease-in;
+    box-sizing: border-box;
+}
+
+.notion-btn:hover {
+    background-color: var(--notion-bg-hover);
+}
+
+/* 저장하기 버튼 전용 포인트 컬러 */
+.notion-btn.submit-btn {
+    border-color: transparent;
+    color: var(--notion-primary-text);
+    font-weight: 600;
+}
+
+.notion-btn.submit-btn:hover {
+    background-color: var(--notion-primary-hover);
+}
+
+.notion-btn.cancel-btn {
+    color: var(--notion-text-light);
+}
